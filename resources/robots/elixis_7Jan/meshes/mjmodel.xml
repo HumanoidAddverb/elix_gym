@@ -1,0 +1,276 @@
+<mujoco model="Elixis_7Jan_Iterate">
+  <compiler angle="radian"/>
+
+  <asset>
+    <mesh name="hip" file="hip.STL"/>
+    <mesh name="torso" file="torso.STL"/>
+    <mesh name="LJ1" file="LJ1.STL"/>
+    <mesh name="LJ2" file="LJ2.STL"/>
+    <mesh name="LJ3" file="LJ3.STL"/>
+    <mesh name="LJ4" file="LJ4.STL"/>
+    <mesh name="LJ5" file="LJ5.STL"/>
+    <mesh name="LJ6" file="LJ6.STL"/>
+    <mesh name="LJ7" file="LJ7.STL"/>
+    <mesh name="RJ1" file="RJ1.STL"/>
+    <mesh name="RJ2" file="RJ2.STL"/>
+    <mesh name="RJ3" file="RJ3.STL"/>
+    <mesh name="RJ4" file="RJ4.STL"/>
+    <mesh name="RJ5" file="RJ5.STL"/>
+    <mesh name="RJ6" file="RJ6.STL"/>
+    <mesh name="RJ7" file="RJ7.STL"/>
+    <mesh name="head_yaw" file="head_yaw.STL"/>
+    <mesh name="head_pitch" file="head_pitch.STL"/>
+    <mesh name="l_hip_roll" file="l_hip_roll.STL"/>
+    <mesh name="l_hip_pitch" file="l_hip_pitch.STL"/>
+    <mesh name="l_hip_yaw" file="l_hip_yaw.STL"/>
+    <mesh name="l_knee" file="l_knee.STL"/>
+    <mesh name="l_feet_pitch" file="l_feet_pitch.STL"/>
+    <mesh name="l_feet_roll" file="l_feet_roll.STL"/>
+    <mesh name="r_hip_roll" file="r_hip_roll.STL"/>
+    <mesh name="r_hip_pitch" file="r_hip_pitch.STL"/>
+    <mesh name="r_hip_yaw" file="r_hip_yaw.STL"/>
+    <mesh name="r_knee" file="r_knee.STL"/>
+    <mesh name="r_feet_pitch" file="r_feet_pitch.STL"/>
+    <mesh name="r_feet_roll" file="r_feet_roll.STL"/>
+  </asset>
+
+  <worldbody>
+        <light pos="0 0 0.8" dir="0 0 -1" directional="true" />
+        <geom name="floor" size="0 0 0.05" type="plane" material="groundplane" />
+
+        <body name="Torso" pos="0 0 1.12" >
+            <inertial pos="7E-03 -3.58E-03 175.49E-03" mass="13.17" diaginertia="82861.13E-06 80414E-06 33480E-06" />
+            <!-- <joint name="torso_joint" type="free" /> -->
+            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="torso" />
+
+            <!-- <body name="0_HY1" pos="0 0 0.386">
+                <inertial pos="0 -5.49E-03 20.98E-03" mass="0.16" diaginertia="196E-06 101.86E-06 167.84E-06" />
+                <joint name="0_HY1_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-1.57 1.57" />
+                <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="head_yaw" />
+
+                <body name="0_HY2" pos="0 -0.031 0.048" quat="0.499998 0.5 0.5 -0.500002">
+                    <inertial pos="-89.95E-03 29.87E-03 -30.69E-03" mass="2.18" fullinertia="7836E-06 16151E-06 18435E-06 3456E-06 -127E-06 31E-06" />
+                    <joint name="0_HY2_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="0 0.8" />
+                    <geom type="mesh" rgba="0.89804 0.91765 0.92941 1" mesh="head_pitch" />
+                    <body name="0_HY_EE" pos="-0.18274 0.07871 -0.03093">
+                        <geom size="0.01 0.05" type="cylinder" rgba="0 0 1 1" />
+                    </body>
+                </body>
+            </body> !HEAD -->
+
+            <body name="1_LS1" pos="0 0.12779 0.27815" quat="0.819161 -0.573564 0 0">
+                <inertial pos="-2.09E-03 0 53.47E-03" mass="1.82" diaginertia="7328.39E-06 6329.05E-06 3863.44E-06" />
+                <joint name="1_LS1_joint" pos="0 0 0" axis="-6.6034e-05 0 1" limited="true" range="-2.87 2.87" />
+                <geom type="mesh" rgba="0.89804 0.91765 0.92941 1" mesh="LJ1" />
+
+                <body name="1_LS2" pos="0.029 0 0.072" quat="0.499998 0.5 0.500002 0.5">
+                    <inertial pos="115.41E-03 0 -17.88E-03" mass="1.57" fullinertia="1188.16E-06 4592.86E-06 4171.03E-06 0 1179.01E-06 0" />
+                    <joint name="1_LS2_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.4 2" />
+                    <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="LJ2" />
+
+                    <body name="1_LS3" pos="0.176 0 -0.029" quat="9.38184e-07 0.707108 -9.38187e-07 0.707105">
+                        <inertial pos="0 -1.34E-03 67.59E-03" mass="1.13" diaginertia="1053.38E-06 1193.46E-06 434.53E-06" />
+                        <joint name="1_LS3_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="-1 4" />
+                        <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="LJ3" />
+                        
+                        <body name="1_LS4" pos="0 0.02725 0.08" quat="0.707105 -0.707108 0 0">
+                            <inertial pos="79.64E-03 0 -22.96E-03" mass="0.46" fullinertia="697.82E-06 1271.39E-06 1203.99E-06 0 245.19E-06 0" />
+                            <joint name="1_LS4_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.5 2" />
+                            <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="LJ4" />
+                            
+                            <body name="1_LS5" pos="0.11976 0 -0.02725" quat="0.696362 -0.122798 0.696363 -0.122798">
+                                <inertial pos="-0.98E-03 0 23.70E-03" mass="0.08" diaginertia="61.10e-06 105e-06 96.11e-06" />
+                                <joint name="1_LS5_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-3.14 3.14" />
+                                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="LJ5" />
+
+                                <body name="1_LS6" pos="0.032 0 0.045" quat="9.38184e-07 0.707108 -9.38187e-07 0.707105">
+                                    <inertial pos="40E-03 1.71E-03 -30.16E-03" mass="1.61" diaginertia="1101E-06 3574E-06 3578E-06" />
+                                    <joint name="1_LS6_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-1.85 1.85" />
+                                    <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="LJ6" />
+                                    
+                                    <body name="1_LS7" pos="0.08 0.0325 -0.032" quat="0.707107 -0.707107 0 0">
+                                        <inertial pos="116.09E-03 -2.44E-03 -35.68E-03" mass="1.37" diaginertia="386.09E-06 2588E-06 2579E-06" />
+                                        <joint name="1_LS7_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="-1.85 1.85" />
+                                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="LJ7" />
+                                        <body name="1_LS_EE" pos="0.058 0 -0.0325" quat="9.38186e-07 0.707107 -9.38186e-07 0.707107">
+                                            <geom size="0.01 0.05" type="cylinder" rgba="0 0 1 1" />
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body> <!-- !LEFT ARM -->
+
+            <body name="2_RS1" pos="0 -0.12779 0.27815" quat="0.819161 0.573564 0 0">
+                <inertial pos="-2.09E-03 0 53.47E-03" mass="1.82" diaginertia="7328.39E-06 6329.05E-06 3863.44E-06" />
+                <joint name="2_RS1_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="-2.87 2.87" />
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="RJ1" />
+
+                <body name="2_RS2" pos="0.029 0 0.072" quat="0.5 -0.5 0.5 -0.5">
+                    <inertial pos="115.41E-03 0 -17.88E-03" mass="1.57" fullinertia="1188.16E-06 4592.86E-06 4171.03E-06 0 1179.01E-06 0" />
+                    <joint name="2_RS2_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-2 0.35" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="RJ2" />
+
+                    <body name="2_RS3" pos="0.176 0 -0.029" quat="9.38184e-07 0.707108 -9.38187e-07 0.707105">
+                        <inertial pos="0 1.34E-03 67.59E-03" mass="1.13" diaginertia="1053.38E-06 1193.46E-06 434.53E-06" />
+                        <joint name="2_RS3_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="-4 1" />
+                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="RJ3" />
+
+                        <body name="2_RS4" pos="0 -0.02725 0.08" quat="0.707107 0.707107 0 0">
+                            <inertial pos="79.64E-03 0 -22.96E-03" mass="0.46" fullinertia="697.82E-06 1271.39E-06 1203.99E-06 0 245.19E-06 0" />
+                            <joint name="2_RS4_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.5 2." />
+                            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="RJ4" />
+
+                            <body name="2_RS5" pos="0.11976 0 -0.02725" quat="0.122796 -0.696362 0.122801 -0.696362">
+                                <inertial pos="0.98E-03 0 23.70E-03" mass="0.08" diaginertia="61.10e-06 105e-06 96.11e-06" />
+                                <joint name="2_RS5_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-3.14 3.14" />
+                                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="RJ5" />
+
+                                <body name="2_RS6" pos="0.0325 0 0.045" quat="9.38184e-07 0.707108 -9.38187e-07 0.707105">
+                                    <inertial pos="40E-03 1.71E-03 -30.16E-03" mass="1.61" diaginertia="1101E-06 3574E-06 3578E-06" />
+                                    <joint name="2_RS6_joint" pos="0 0 0" axis="0 0 1" limited="true"  range="-1.85 1.85" />
+                                    <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="RJ6" />
+
+                                    <body name="2_RS7" pos="0.08 0.0325 -0.0325" quat="0.707107 -0.707107 0 0">
+                                        <inertial pos="116.09E-03 2.44E-03 -35.68E-03" mass="1.37" diaginertia="386.09E-06 2588E-06 2579E-06" />
+                                        <joint name="2_RS7_joint" pos="0 0 0" axis="0 0 -1" limited="true"  range="-1.85 1.85" />
+                                        <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="RJ7" />
+                                        <body name="2_RS_EE" pos="0.058 0 -0.0325" euler="0 -1.57 0">
+                                            <geom size="0.01 0.05" type="cylinder" rgba="0 0 1 1" />
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body> <!-- !RIGHT ARM --> 
+
+            <body name="3_HIP" pos="0 0 -0.016">
+                <inertial pos="-0.35E-03 0 -85.39E-03" mass="7.43" diaginertia="58276E-06 23092E-06 53314E-06" />
+                <joint name="3_HIP_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-3.14 3.14" />
+                <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="hip" />
+                <body name="3_HIP_EE" pos="0 0 -0.161"> 
+                  <geom size="0.01 0.05" type="cylinder" rgba="0 0 1 1" />
+                  <inertial pos="0 0 0" mass="0.09" fullinertia="6688E-09 6273E-09 1183.68E-09 0 -333E-09 0" />
+                </body>
+
+                <body name="4_LL1" pos="0 0.09 -0.1595" quat="0 1 0 0">
+                  <inertial pos="-0.0571021 -2.04469e-07 0.0636385" quat="0.950722 3.58581e-06 -0.310046 -4.27535e-06" mass="2.83" diaginertia="0.02104 0.02104 0.01884" />
+                  <joint name="4_LL1_joint" pos="0 0 0" axis="0 0 -1" range="-0.43 0.43" actuatorfrcrange="-200 200" />
+                  <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="l_hip_yaw" />
+
+                  <body name="4_LL2" pos="-0.036 0 0.102" quat="9.38186e-07 0.707107 -9.38186e-07 0.707107">
+                    <inertial pos="-4.04042e-06 0.0181196 0.0426725" quat="0.707107 0 0 0.707107" mass="1.66" diaginertia="0.0162 0.015159 0.015159" />
+                    <joint name="4_LL2_joint" pos="0 0 0" axis="0 0 1" range="-0.43 0.43" actuatorfrcrange="-200 200" />
+                    <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_hip_roll" />
+
+                    <body name="4_LL3" pos="0 0.043 0.077" quat="-0.499999 0.500001 0.499999 0.500001">
+                      <inertial pos="-0.00577408 0.212407 -0.0108926" quat="0.551074 0.483329 -0.463928 0.497476" mass="6.21" diaginertia="0.1316 0.108 0.039" />
+                      <joint name="4_LL3_joint" pos="0 0 0" axis="0 0 1" range="-1.57 1.57" actuatorfrcrange="-200 200" />
+                      <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="l_hip_pitch" />
+
+                    <body name="4_LL4" pos="0.000253564 0.380669 -0.028997">
+                      <inertial pos="-0.00526862 0.164707 -0.0132438" quat="0.482717 0.479191 -0.526566 0.509989" mass="4.44" diaginertia="0.088 0.0746 0.0259" />
+                      <joint name="4_LL4_joint" pos="0 0 0" axis="0 0 1" range="-0.26 2.05" actuatorfrcrange="-300 300" />
+                      <!-- <geom size="0.05 0.1" quat="0.707388 0.706825 0 0" type="cylinder"
+                        rgba="0.898039 0.917647 0.929412 1" /> -->
+                      <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="l_knee" />
+
+                      <body name="4_LL5" pos="-0.000253564 0.38 0.005">
+                        <inertial pos="-2.41863e-07 -4.99532e-08 -0.019" quat="8.72974e-05 0.707107 0.00019602 0.707107" mass="0.22" diaginertia="0.000424 0.000424 0.000424" />
+                        <joint name="4_LL5_joint" pos="0 0 0" axis="0 0 1" range="-0.5 0.3" actuatorfrcrange="-60 60" />
+                        <geom type="mesh" rgba="0.866667 0.909804 1 1" mesh="l_feet_pitch" />
+
+                        <body name="4_LL6" pos="0.0175 0 -0.019" quat="0.5 0.5 0.5 0.5">
+                          <inertial pos="0.0422131 -1.73953e-06 0.00176473" quat="1         0         0         0" mass="1.565" diaginertia="0.016762 0.0152684 0.00276269" />
+                          <joint name="4_LL6_joint" pos="0 0 0" axis="0 0 1" range="-0.5 0.5" actuatorfrcrange="-50 50" />
+                          <geom type="mesh" rgba="0.898039 0.917647 0.929412 1" mesh="l_feet_roll" />
+                          <geom size="0.14 0.05 0.01" pos="0.0710644 0 0.0184357" quat="0.707107 0 0.707107 0" type="box" rgba="1 1 1 1" />
+                          <body name="4_LL_EE_TOE" pos="0.0690857 0 0.159586" quat="0.707107 0 0.707107 0">
+                              <geom type="mesh" rgba="0.298039 0.298039 0.298039 1" mesh="l_feet_pitch" />
+                              <inertial pos="0 0 0" mass="0.09" fullinertia="6688E-09 6273E-09 1183.68E-09 0 -333E-09 0" />
+                          </body>
+                          <body name="4_LL_EE" pos="0.072 0 0">
+                              <geom size="0.01 0.05" type="cylinder" rgba="0 0 1 1" />
+                              <inertial pos="0 0 0" mass="0.09" fullinertia="6688E-09 6273E-09 1183.68E-09 0 -333E-09 0" />
+                          </body>
+                          <body name="4_LL_EE_HEEL" pos="0.0710644 0 -0.121564" quat="0.707107 0 0.707107 0">
+                              <geom type="mesh" rgba="0.298039 0.298039 0.298039 1" mesh="l_feet_roll" />
+                              <inertial pos="0 0 0" mass="0.09" fullinertia="6688E-09 6273E-09 1183.68E-09 0 -333E-09 0" />
+                          </body>                        
+                        </body>
+                     </body>
+                   </body>
+                 </body>
+               </body>
+            </body>
+
+        <body name="5_RL1" pos="0 -0.09 -0.1595" quat="0 1 0 0">
+          <inertial pos="-0.057102 7.25525e-07 0.0636384" quat="0.950722 -6.70796e-06 -0.310046 2.40997e-05" mass="2.83" diaginertia="0.02104 0.02104 0.01884" />
+          <joint name="5_RL1_joint" pos="0 0 0" axis="0 0 -1" range="-0.43 0.43" actuatorfrcrange="-200 200" />
+          <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="r_hip_yaw" />
+
+          <body name="5_RL2" pos="-0.036 0 0.102" quat="9.38186e-07 0.707107 -9.38186e-07 0.707107">
+            <inertial pos="-3.41645e-06 -0.0181197 0.0426721" quat="0.707107 0 0 0.707107" mass="1.66" diaginertia="0.0162 0.015159 0.015159" />
+            <joint name="5_RL2_joint" pos="0 0 0" axis="0 0 1" range="-0.43 0.43" actuatorfrcrange="-200 200" />
+            <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="r_hip_roll" />
+
+            <body name="5_RL3" pos="0 -0.043 0.077" quat="0.5 0.5 -0.5 0.5">
+              <inertial pos="-0.00577821 -0.212401 -0.0108915" quat="0.483325 0.551076 -0.497474 0.463931" mass="6.21" diaginertia="0.1316 0.108 0.039" />
+              <joint name="5_RL3_joint" pos="0 0 0" axis="0 0 -1" range="-1.57 1.57" actuatorfrcrange="-200 200" />
+              <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="r_hip_pitch" />
+
+              <body name="5_RL4" pos="0.000253564 -0.380669 -0.028997">
+                <inertial pos="-0.00526831 -0.164707 -0.0132427" quat="0.5 0.5 -0.5 0.5" mass="4.4" diaginertia="0.088 0.0746 0.0259"/>
+                <joint name="5_RL4_joint" pos="0 0 0" axis="0 0 -1" range="-0.26 2.05" actuatorfrcrange="-300 300" />
+                <!-- <geom size="0.05 0.1" quat="0.707388 0.706825 0 0" type="cylinder"
+                  rgba="0.792157 0.819608 0.933333 1" /> -->
+                <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="r_knee" />
+
+                <body name="5_RL5" pos="-0.000253564 -0.38 0.005">
+                  <inertial pos="-2.41352e-07 4.9925e-08 -0.019" quat="-8.73263e-05 0.707107 -0.000196136 0.707107" mass="0.22" diaginertia="0.000424 0.000424 0.000424" />
+                  <joint name="5_RL5_joint" pos="0 0 0" axis="0 0 -1" range="-0.5 0.3" actuatorfrcrange="-60 60" />
+                  <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="r_feet_pitch" />
+
+                  <body name="5_RL6" pos="0.0175 0 -0.019" quat="0.5 -0.5 0.5 -0.5">
+                    <inertial pos="0.0422118 -4.96002e-06 0.00175127" mass="1.15" diaginertia="0.016762 0.0152684 0.00276269"/>
+                    <joint name="5_RL6_joint" pos="0 0 0" axis="0 0 1" range="-0.5 0.5" actuatorfrcrange="-50 50" />
+                    <geom type="mesh" rgba="0.792157 0.819608 0.933333 1" mesh="r_feet_roll" />
+                    <geom size="0.14 0.05 0.01" pos="0.0710644 0 0.0184357" quat="0.707107 0 0.707107 0" type="box" rgba="1 1 1 1" />
+                      <body name="5_RL_EE_TOE" pos="0.0690857 0 0.159586"
+                            quat="0.707107 0 0.707107 0">
+                            <geom type="mesh"
+                                rgba="0.298039 0.298039 0.298039 1"
+                                mesh="r_feet_pitch" />
+                                 <inertial pos="0 0 0"
+                            mass="0.009"
+                            fullinertia="6688E-09 6273E-09 1183.68E-09 0 -333E-09 0" />
+                        </body>
+                        <body name="5_RL_EE" pos="0.072 0 0">
+                            <geom size="0.01 0.05" type="cylinder"
+                                rgba="0 0 1 1" />
+                                 <inertial pos="0 0 0"
+                            mass="0.009"
+                            fullinertia="6688E-09 6273E-09 1183.68E-09 0 -333E-09 0" />
+                        </body>
+                        <body name="5_RL_EE_HEEL"
+                            pos="0.0710644 0 -0.121564" quat="0.707107 0 0.707107 0">
+                            <geom type="mesh" rgba="0.298039 0.298039 0.298039 1"
+                                mesh="r_feet_roll" />
+                                 <inertial pos="0 0 0"
+                            mass="0.009"
+                            fullinertia="6688E-09 6273E-09 1183.68E-09 0 -333E-09 0" />
+                        </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
